@@ -1,0 +1,5 @@
+{
+	"name": "phpstan/phpstan-dibi",
+	"description": "Dibi class reflection extension for PHPStan",
+	"license": ["MIT"]
+}
