@@ -1,0 +1,5 @@
+services:
+	-
+		class: PHPStan\Reflection\Dibi\DibiFluentClassReflectionExtension
+		tags:
+			- phpstan.broker.methodsClassReflectionExtension
