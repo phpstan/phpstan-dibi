@@ -1,12 +1,10 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace PHPStan\Reflection\Dibi;
 
 use PHPStan\Reflection\ClassReflection;
 use PHPStan\Reflection\MethodReflection;
 use PHPStan\Reflection\MethodsClassReflectionExtension;
-use PHPStan\Reflection\PropertiesClassReflectionExtension;
-use PHPStan\Reflection\PropertyReflection;
 
 class DibiFluentClassReflectionExtension implements MethodsClassReflectionExtension
 {
@@ -20,4 +18,5 @@ class DibiFluentClassReflectionExtension implements MethodsClassReflectionExtens
 	{
 		return new DibiFluentMethodReflection($methodName, $classReflection);
 	}
+
 }

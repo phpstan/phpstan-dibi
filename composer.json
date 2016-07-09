@@ -9,9 +9,18 @@
 		"phpstan/phpstan": "dev-dev#8bb7f234a2",
 		"dibi/dibi": "~3.0"
 	},
+	"require-dev": {
+		"consistence/coding-standard": "~0.11.0",
+		"phing/phing": "^2.13.0",
+		"phpunit/phpunit": "^5.3",
+		"slevomat/coding-standard": "dev-php7#961090ac32"
+	},
 	"autoload": {
 		"psr-4": {
 			"PHPStan\\": "src/"
 		}
+	},
+	"autoload-dev": {
+		"classmap": ["tests/"]
 	}
 }
