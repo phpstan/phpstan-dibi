@@ -3,6 +3,7 @@
 namespace PHPStan\Reflection\Dibi;
 
 use PHPStan\Reflection\ClassReflection;
+use PHPStan\Type\ObjectType;
 
 class DibiFluentClassReflectionExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -39,6 +40,23 @@ class DibiFluentClassReflectionExtensionTest extends \PHPUnit_Framework_TestCase
 		$classReflection = $this->createMock(ClassReflection::class);
 		$classReflection->method('getName')->will($this->returnValue($className));
 		$this->assertSame($result, $this->extension->hasMethod($classReflection, 'select'));
+	}
+
+	public function testGetMethod()
+	{
+		$classReflection = $this->createMock(ClassReflection::class);
+		$classReflection->method('getName')->will($this->returnValue(\Dibi\Fluent::class));
+		$methodReflection = $this->extension->getMethod($classReflection, 'select');
+		$this->assertSame('select', $methodReflection->getName());
+		$this->assertSame($classReflection, $methodReflection->getDeclaringClass());
+		$this->assertFalse($methodReflection->isStatic());
+		$this->assertEmpty($methodReflection->getParameters());
+		$this->assertTrue($methodReflection->isVariadic());
+		$this->assertFalse($methodReflection->isPrivate());
+		$this->assertTrue($methodReflection->isPublic());
+		$this->assertInstanceOf(ObjectType::class, $methodReflection->getReturnType());
+		$this->assertSame(\Dibi\Fluent::class, $methodReflection->getReturnType()->getClass());
+		$this->assertFalse($methodReflection->getReturnType()->isNullable());
 	}
 
 }
