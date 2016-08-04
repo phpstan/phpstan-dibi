@@ -1,3 +1,7 @@
+parameters:
+	universalObjectCratesClasses:
+		- Dibi\Row
+
 services:
 	-
 		class: PHPStan\Reflection\Dibi\DibiFluentClassReflectionExtension
