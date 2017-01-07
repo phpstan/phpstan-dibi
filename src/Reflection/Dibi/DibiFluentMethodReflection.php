@@ -32,6 +32,11 @@ class DibiFluentMethodReflection implements MethodReflection
 		return $this->dibiFluent;
 	}
 
+	public function getPrototype(): MethodReflection
+	{
+		return $this;
+	}
+
 	public function isStatic(): bool
 	{
 		return false;
