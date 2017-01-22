@@ -14,7 +14,7 @@ This extension defines dynamic methods on `Dibi\Fluent` instance. They are calle
 To use this extension, require it in [Composer](https://getcomposer.org/):
 
 ```
-composer require phpstan/phpstan-dibi
+composer require --dev phpstan/phpstan-dibi
 ```
 
 And include extension.neon in your project's PHPStan config:
