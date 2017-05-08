@@ -67,7 +67,7 @@ class DibiFluentMethodReflection implements MethodReflection
 
 	public function getReturnType(): Type
 	{
-		return new ObjectType(\Dibi\Fluent::class, false);
+		return new ObjectType(\Dibi\Fluent::class);
 	}
 
 }

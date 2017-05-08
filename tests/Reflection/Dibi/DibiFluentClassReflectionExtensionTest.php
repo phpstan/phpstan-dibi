@@ -3,7 +3,6 @@
 namespace PHPStan\Reflection\Dibi;
 
 use PHPStan\Reflection\ClassReflection;
-use PHPStan\Type\ObjectType;
 
 class DibiFluentClassReflectionExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -54,9 +53,7 @@ class DibiFluentClassReflectionExtensionTest extends \PHPUnit_Framework_TestCase
 		$this->assertTrue($methodReflection->isVariadic());
 		$this->assertFalse($methodReflection->isPrivate());
 		$this->assertTrue($methodReflection->isPublic());
-		$this->assertInstanceOf(ObjectType::class, $methodReflection->getReturnType());
-		$this->assertSame(\Dibi\Fluent::class, $methodReflection->getReturnType()->getClass());
-		$this->assertFalse($methodReflection->getReturnType()->isNullable());
+		$this->assertSame(\Dibi\Fluent::class, $methodReflection->getReturnType()->describe());
 	}
 
 }
