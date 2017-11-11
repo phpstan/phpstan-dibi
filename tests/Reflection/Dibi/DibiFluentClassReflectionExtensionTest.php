@@ -2,16 +2,18 @@
 
 namespace PHPStan\Reflection\Dibi;
 
-use PHPStan\Reflection\ClassReflection;
-
-class DibiFluentClassReflectionExtensionTest extends \PHPUnit\Framework\TestCase
+class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\TestCase
 {
+
+	/** @var \PHPStan\Broker\Broker */
+	private $broker;
 
 	/** @var \PHPStan\Reflection\Dibi\DibiFluentClassReflectionExtension */
 	private $extension;
 
 	protected function setUp()
 	{
+		$this->broker = $this->createBroker();
 		$this->extension = new DibiFluentClassReflectionExtension();
 	}
 
@@ -36,15 +38,13 @@ class DibiFluentClassReflectionExtensionTest extends \PHPUnit\Framework\TestCase
 	 */
 	public function testHasMethod(string $className, bool $result)
 	{
-		$classReflection = $this->createMock(ClassReflection::class);
-		$classReflection->method('getName')->will($this->returnValue($className));
+		$classReflection = $this->broker->getClass($className);
 		$this->assertSame($result, $this->extension->hasMethod($classReflection, 'select'));
 	}
 
 	public function testGetMethod()
 	{
-		$classReflection = $this->createMock(ClassReflection::class);
-		$classReflection->method('getName')->will($this->returnValue(\Dibi\Fluent::class));
+		$classReflection = $this->broker->getClass(\Dibi\Fluent::class);
 		$methodReflection = $this->extension->getMethod($classReflection, 'select');
 		$this->assertSame('select', $methodReflection->getName());
 		$this->assertSame($classReflection, $methodReflection->getDeclaringClass());
