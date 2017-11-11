@@ -4,7 +4,7 @@ namespace PHPStan\Reflection\Dibi;
 
 use PHPStan\Reflection\ClassReflection;
 
-class DibiFluentClassReflectionExtensionTest extends \PHPUnit_Framework_TestCase
+class DibiFluentClassReflectionExtensionTest extends \PHPUnit\Framework\TestCase
 {
 
 	/** @var \PHPStan\Reflection\Dibi\DibiFluentClassReflectionExtension */
