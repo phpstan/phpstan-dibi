@@ -39,21 +39,21 @@ class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\TestCase
 	public function testHasMethod(string $className, bool $result)
 	{
 		$classReflection = $this->broker->getClass($className);
-		$this->assertSame($result, $this->extension->hasMethod($classReflection, 'select'));
+		self::assertSame($result, $this->extension->hasMethod($classReflection, 'select'));
 	}
 
 	public function testGetMethod()
 	{
 		$classReflection = $this->broker->getClass(\Dibi\Fluent::class);
 		$methodReflection = $this->extension->getMethod($classReflection, 'select');
-		$this->assertSame('select', $methodReflection->getName());
-		$this->assertSame($classReflection, $methodReflection->getDeclaringClass());
-		$this->assertFalse($methodReflection->isStatic());
-		$this->assertEmpty($methodReflection->getParameters());
-		$this->assertTrue($methodReflection->isVariadic());
-		$this->assertFalse($methodReflection->isPrivate());
-		$this->assertTrue($methodReflection->isPublic());
-		$this->assertSame(\Dibi\Fluent::class, $methodReflection->getReturnType()->describe());
+		self::assertSame('select', $methodReflection->getName());
+		self::assertSame($classReflection, $methodReflection->getDeclaringClass());
+		self::assertFalse($methodReflection->isStatic());
+		self::assertEmpty($methodReflection->getParameters());
+		self::assertTrue($methodReflection->isVariadic());
+		self::assertFalse($methodReflection->isPrivate());
+		self::assertTrue($methodReflection->isPublic());
+		self::assertSame(\Dibi\Fluent::class, $methodReflection->getReturnType()->describe());
 	}
 
 }
