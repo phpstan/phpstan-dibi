@@ -2,6 +2,7 @@
 
 namespace PHPStan\Reflection\Dibi;
 
+use PHPStan\Reflection\ClassMemberReflection;
 use PHPStan\Reflection\ClassReflection;
 use PHPStan\Reflection\MethodReflection;
 use PHPStan\Type\ObjectType;
@@ -32,7 +33,7 @@ class DibiFluentMethodReflection implements MethodReflection
 		return $this->dibiFluent;
 	}
 
-	public function getPrototype(): MethodReflection
+	public function getPrototype(): ClassMemberReflection
 	{
 		return $this;
 	}
