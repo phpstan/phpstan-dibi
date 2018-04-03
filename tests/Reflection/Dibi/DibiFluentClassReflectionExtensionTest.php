@@ -11,7 +11,7 @@ class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\TestCase
 	/** @var \PHPStan\Reflection\Dibi\DibiFluentClassReflectionExtension */
 	private $extension;
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		$this->broker = $this->createBroker();
 		$this->extension = new DibiFluentClassReflectionExtension();
@@ -36,13 +36,13 @@ class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\TestCase
 	 * @param string $className
 	 * @param bool $result
 	 */
-	public function testHasMethod(string $className, bool $result)
+	public function testHasMethod(string $className, bool $result): void
 	{
 		$classReflection = $this->broker->getClass($className);
 		self::assertSame($result, $this->extension->hasMethod($classReflection, 'select'));
 	}
 
-	public function testGetMethod()
+	public function testGetMethod(): void
 	{
 		$classReflection = $this->broker->getClass(\Dibi\Fluent::class);
 		$methodReflection = $this->extension->getMethod($classReflection, 'select');
