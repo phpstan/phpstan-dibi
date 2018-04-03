@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="PHPStan Doctrine">
+<ruleset name="PHPStan Dibi">
 	<rule ref="vendor/consistence/coding-standard/Consistence/ruleset.xml">
 		<exclude name="Squiz.Functions.GlobalFunction.Found"/>
 		<exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameAfterKeyword"/>
