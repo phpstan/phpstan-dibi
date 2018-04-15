@@ -2,6 +2,8 @@
 
 namespace PHPStan\Reflection\Dibi;
 
+use PHPStan\Type\VerbosityLevel;
+
 class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\TestCase
 {
 
@@ -53,7 +55,7 @@ class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\TestCase
 		self::assertTrue($methodReflection->isVariadic());
 		self::assertFalse($methodReflection->isPrivate());
 		self::assertTrue($methodReflection->isPublic());
-		self::assertSame(\Dibi\Fluent::class, $methodReflection->getReturnType()->describe());
+		self::assertSame(\Dibi\Fluent::class, $methodReflection->getReturnType()->describe(VerbosityLevel::value()));
 	}
 
 }
