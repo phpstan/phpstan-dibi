@@ -4,9 +4,9 @@ namespace PHPStan\Reflection\Dibi;
 
 use PHPStan\Reflection\ClassMemberReflection;
 use PHPStan\Reflection\ClassReflection;
+use PHPStan\Reflection\FunctionVariant;
 use PHPStan\Reflection\MethodReflection;
 use PHPStan\Type\ObjectType;
-use PHPStan\Type\Type;
 
 class DibiFluentMethodReflection implements MethodReflection
 {
@@ -43,19 +43,6 @@ class DibiFluentMethodReflection implements MethodReflection
 		return false;
 	}
 
-	/**
-	 * @return \PHPStan\Reflection\ParameterReflection[]
-	 */
-	public function getParameters(): array
-	{
-		return [];
-	}
-
-	public function isVariadic(): bool
-	{
-		return true;
-	}
-
 	public function isPrivate(): bool
 	{
 		return false;
@@ -66,9 +53,18 @@ class DibiFluentMethodReflection implements MethodReflection
 		return true;
 	}
 
-	public function getReturnType(): Type
+	/**
+	 * @return \PHPStan\Reflection\ParametersAcceptor[]
+	 */
+	public function getVariants(): array
 	{
-		return new ObjectType(\Dibi\Fluent::class);
+		return [
+			new FunctionVariant(
+				[],
+				true,
+				new ObjectType(\Dibi\Fluent::class)
+			),
+		];
 	}
 
 }

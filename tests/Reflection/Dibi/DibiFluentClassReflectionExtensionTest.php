@@ -2,6 +2,7 @@
 
 namespace PHPStan\Reflection\Dibi;
 
+use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\Type\VerbosityLevel;
 
 class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\TestCase
@@ -48,14 +49,15 @@ class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\TestCase
 	{
 		$classReflection = $this->broker->getClass(\Dibi\Fluent::class);
 		$methodReflection = $this->extension->getMethod($classReflection, 'select');
+		$parametersAcceptor = ParametersAcceptorSelector::selectSingle($methodReflection->getVariants());
 		self::assertSame('select', $methodReflection->getName());
 		self::assertSame($classReflection, $methodReflection->getDeclaringClass());
 		self::assertFalse($methodReflection->isStatic());
-		self::assertEmpty($methodReflection->getParameters());
-		self::assertTrue($methodReflection->isVariadic());
+		self::assertEmpty($parametersAcceptor->getParameters());
+		self::assertTrue($parametersAcceptor->isVariadic());
 		self::assertFalse($methodReflection->isPrivate());
 		self::assertTrue($methodReflection->isPublic());
-		self::assertSame(\Dibi\Fluent::class, $methodReflection->getReturnType()->describe(VerbosityLevel::value()));
+		self::assertSame(\Dibi\Fluent::class, $parametersAcceptor->getReturnType()->describe(VerbosityLevel::value()));
 	}
 
 }
