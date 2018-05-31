@@ -62,7 +62,7 @@ class DibiFluentMethodReflection implements MethodReflection
 			new FunctionVariant(
 				[],
 				true,
-				new ObjectType(\Dibi\Fluent::class)
+				new ObjectType('Dibi\Fluent')
 			),
 		];
 	}

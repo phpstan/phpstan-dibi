@@ -11,7 +11,7 @@ class DibiFluentClassReflectionExtension implements MethodsClassReflectionExtens
 
 	public function hasMethod(ClassReflection $classReflection, string $methodName): bool
 	{
-		return $classReflection->getName() === \Dibi\Fluent::class;
+		return $classReflection->getName() === 'Dibi\Fluent';
 	}
 
 	public function getMethod(ClassReflection $classReflection, string $methodName): MethodReflection
