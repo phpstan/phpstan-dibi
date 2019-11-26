@@ -20,6 +20,9 @@ class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\TestCase
 		$this->extension = new DibiFluentClassReflectionExtension();
 	}
 
+	/**
+	 * @return array<array{class-string, bool}>
+	 */
 	public function dataHasMethod(): array
 	{
 		return [
