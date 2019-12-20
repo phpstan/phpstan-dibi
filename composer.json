@@ -30,7 +30,8 @@
 		"phpunit/phpunit": "^7.0",
 		"satooshi/php-coveralls": "^1.0",
 		"slevomat/coding-standard": "^4.5.2",
-		"dibi/dibi": "~3.0"
+		"dibi/dibi": "~3.0",
+		"ergebnis/composer-normalize": "^2.0.2"
 	},
 	"conflict": {
 		"dibi/dibi": "<3.0"
