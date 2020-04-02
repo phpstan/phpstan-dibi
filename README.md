@@ -1,6 +1,6 @@
 # Dibi class reflection extension for PHPStan
 
-[![Build Status](https://travis-ci.org/phpstan/phpstan-dibi.svg)](https://travis-ci.org/phpstan/phpstan-dibi)
+[![Build Status](https://travis-ci.com/phpstan/phpstan-dibi.svg?branch=master)](https://travis-ci.com/phpstan/phpstan-dibi)
 [![Latest Stable Version](https://poser.pugx.org/phpstan/phpstan-dibi/v/stable)](https://packagist.org/packages/phpstan/phpstan-dibi)
 [![License](https://poser.pugx.org/phpstan/phpstan-dibi/license)](https://packagist.org/packages/phpstan/phpstan-dibi)
 
