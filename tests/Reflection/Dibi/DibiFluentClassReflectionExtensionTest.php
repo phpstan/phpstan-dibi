@@ -5,7 +5,7 @@ namespace PHPStan\Reflection\Dibi;
 use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\Type\VerbosityLevel;
 
-class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\TestCase
+class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\PHPStanTestCase
 {
 
 	/** @var \PHPStan\Broker\Broker */
