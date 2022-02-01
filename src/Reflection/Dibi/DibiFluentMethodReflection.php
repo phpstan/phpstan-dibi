@@ -6,9 +6,11 @@ use PHPStan\Reflection\ClassMemberReflection;
 use PHPStan\Reflection\ClassReflection;
 use PHPStan\Reflection\FunctionVariant;
 use PHPStan\Reflection\MethodReflection;
+use PHPStan\Reflection\ParametersAcceptor;
 use PHPStan\TrinaryLogic;
 use PHPStan\Type\Generic\TemplateTypeMap;
 use PHPStan\Type\ObjectType;
+use PHPStan\Type\Type;
 
 class DibiFluentMethodReflection implements MethodReflection
 {
@@ -16,7 +18,7 @@ class DibiFluentMethodReflection implements MethodReflection
 	/** @var string */
 	private $name;
 
-	/** @var \PHPStan\Reflection\ClassReflection */
+	/** @var ClassReflection */
 	private $dibiFluent;
 
 	public function __construct(string $name, ClassReflection $dibiFluent)
@@ -56,7 +58,7 @@ class DibiFluentMethodReflection implements MethodReflection
 	}
 
 	/**
-	 * @return \PHPStan\Reflection\ParametersAcceptor[]
+	 * @return ParametersAcceptor[]
 	 */
 	public function getVariants(): array
 	{
@@ -76,7 +78,7 @@ class DibiFluentMethodReflection implements MethodReflection
 		return null;
 	}
 
-	public function isDeprecated(): \PHPStan\TrinaryLogic
+	public function isDeprecated(): TrinaryLogic
 	{
 		return TrinaryLogic::createNo();
 	}
@@ -86,22 +88,22 @@ class DibiFluentMethodReflection implements MethodReflection
 		return null;
 	}
 
-	public function isFinal(): \PHPStan\TrinaryLogic
+	public function isFinal(): TrinaryLogic
 	{
 		return TrinaryLogic::createNo();
 	}
 
-	public function isInternal(): \PHPStan\TrinaryLogic
+	public function isInternal(): TrinaryLogic
 	{
 		return TrinaryLogic::createNo();
 	}
 
-	public function getThrowType(): ?\PHPStan\Type\Type
+	public function getThrowType(): ?Type
 	{
 		return null;
 	}
 
-	public function hasSideEffects(): \PHPStan\TrinaryLogic
+	public function hasSideEffects(): TrinaryLogic
 	{
 		return TrinaryLogic::createYes();
 	}
