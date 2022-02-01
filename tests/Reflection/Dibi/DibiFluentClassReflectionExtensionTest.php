@@ -2,16 +2,20 @@
 
 namespace PHPStan\Reflection\Dibi;
 
+use Dibi\Fluent;
+use PHPStan\Broker\Broker;
 use PHPStan\Reflection\ParametersAcceptorSelector;
+use PHPStan\Testing\PHPStanTestCase;
 use PHPStan\Type\VerbosityLevel;
+use stdClass;
 
-class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\PHPStanTestCase
+class DibiFluentClassReflectionExtensionTest extends PHPStanTestCase
 {
 
-	/** @var \PHPStan\Broker\Broker */
+	/** @var Broker */
 	private $broker;
 
-	/** @var \PHPStan\Reflection\Dibi\DibiFluentClassReflectionExtension */
+	/** @var DibiFluentClassReflectionExtension */
 	private $extension;
 
 	protected function setUp(): void
@@ -27,11 +31,11 @@ class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\PHPStanTes
 	{
 		return [
 			[
-				\Dibi\Fluent::class,
+				Fluent::class,
 				true,
 			],
 			[
-				\stdClass::class,
+				stdClass::class,
 				false,
 			],
 		];
@@ -39,8 +43,6 @@ class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\PHPStanTes
 
 	/**
 	 * @dataProvider dataHasMethod
-	 * @param string $className
-	 * @param bool $result
 	 */
 	public function testHasMethod(string $className, bool $result): void
 	{
@@ -50,7 +52,7 @@ class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\PHPStanTes
 
 	public function testGetMethod(): void
 	{
-		$classReflection = $this->broker->getClass(\Dibi\Fluent::class);
+		$classReflection = $this->broker->getClass(Fluent::class);
 		$methodReflection = $this->extension->getMethod($classReflection, 'select');
 		$parametersAcceptor = ParametersAcceptorSelector::selectSingle($methodReflection->getVariants());
 		self::assertSame('select', $methodReflection->getName());
@@ -60,7 +62,7 @@ class DibiFluentClassReflectionExtensionTest extends \PHPStan\Testing\PHPStanTes
 		self::assertTrue($parametersAcceptor->isVariadic());
 		self::assertFalse($methodReflection->isPrivate());
 		self::assertTrue($methodReflection->isPublic());
-		self::assertSame(\Dibi\Fluent::class, $parametersAcceptor->getReturnType()->describe(VerbosityLevel::value()));
+		self::assertSame(Fluent::class, $parametersAcceptor->getReturnType()->describe(VerbosityLevel::value()));
 	}
 
 }
