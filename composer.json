@@ -13,11 +13,11 @@
 		"dibi/dibi": "<3.0"
 	},
 	"require-dev": {
-		"dibi/dibi": "~4.0",
+		"dibi/dibi": "~5.0",
 		"php-parallel-lint/php-parallel-lint": "^1.2",
 		"phpstan/phpstan-phpunit": "^1.0",
 		"phpstan/phpstan-strict-rules": "^1.0",
-		"phpunit/phpunit": "^9.5"
+		"phpunit/phpunit": "^11.0"
 	},
 	"config": {
 		"platform": {
