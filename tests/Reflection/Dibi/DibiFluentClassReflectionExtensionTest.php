@@ -12,11 +12,9 @@ use stdClass;
 class DibiFluentClassReflectionExtensionTest extends PHPStanTestCase
 {
 
-	/** @var Broker */
-	private $broker;
+	private Broker $broker;
 
-	/** @var DibiFluentClassReflectionExtension */
-	private $extension;
+	private DibiFluentClassReflectionExtension $extension;
 
 	protected function setUp(): void
 	{

@@ -15,11 +15,9 @@ use PHPStan\Type\Type;
 class DibiFluentMethodReflection implements MethodReflection
 {
 
-	/** @var string */
-	private $name;
+	private string $name;
 
-	/** @var ClassReflection */
-	private $dibiFluent;
+	private ClassReflection $dibiFluent;
 
 	public function __construct(string $name, ClassReflection $dibiFluent)
 	{
@@ -68,7 +66,7 @@ class DibiFluentMethodReflection implements MethodReflection
 				TemplateTypeMap::createEmpty(),
 				[],
 				true,
-				new ObjectType('Dibi\Fluent')
+				new ObjectType('Dibi\Fluent'),
 			),
 		];
 	}
