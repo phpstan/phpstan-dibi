@@ -4,7 +4,6 @@ namespace PHPStan\Reflection\Dibi;
 
 use Dibi\Fluent;
 use PHPStan\Broker\Broker;
-use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\Testing\PHPStanTestCase;
 use PHPStan\Type\VerbosityLevel;
 use stdClass;
@@ -52,7 +51,7 @@ class DibiFluentClassReflectionExtensionTest extends PHPStanTestCase
 	{
 		$classReflection = $this->broker->getClass(Fluent::class);
 		$methodReflection = $this->extension->getMethod($classReflection, 'select');
-		$parametersAcceptor = ParametersAcceptorSelector::selectSingle($methodReflection->getVariants());
+		$parametersAcceptor = $methodReflection->getVariants()[0];
 		self::assertSame('select', $methodReflection->getName());
 		self::assertSame($classReflection, $methodReflection->getDeclaringClass());
 		self::assertFalse($methodReflection->isStatic());
