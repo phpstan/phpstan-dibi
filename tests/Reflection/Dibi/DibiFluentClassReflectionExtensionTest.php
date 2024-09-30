@@ -3,7 +3,7 @@
 namespace PHPStan\Reflection\Dibi;
 
 use Dibi\Fluent;
-use PHPStan\Broker\Broker;
+use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Testing\PHPStanTestCase;
 use PHPStan\Type\VerbosityLevel;
 use stdClass;
@@ -11,13 +11,13 @@ use stdClass;
 class DibiFluentClassReflectionExtensionTest extends PHPStanTestCase
 {
 
-	private Broker $broker;
+	private ReflectionProvider $reflectionProvider;
 
 	private DibiFluentClassReflectionExtension $extension;
 
 	protected function setUp(): void
 	{
-		$this->broker = $this->createBroker();
+		$this->reflectionProvider = $this->createReflectionProvider();
 		$this->extension = new DibiFluentClassReflectionExtension();
 	}
 
@@ -43,13 +43,13 @@ class DibiFluentClassReflectionExtensionTest extends PHPStanTestCase
 	 */
 	public function testHasMethod(string $className, bool $result): void
 	{
-		$classReflection = $this->broker->getClass($className);
+		$classReflection = $this->reflectionProvider->getClass($className);
 		self::assertSame($result, $this->extension->hasMethod($classReflection, 'select'));
 	}
 
 	public function testGetMethod(): void
 	{
-		$classReflection = $this->broker->getClass(Fluent::class);
+		$classReflection = $this->reflectionProvider->getClass(Fluent::class);
 		$methodReflection = $this->extension->getMethod($classReflection, 'select');
 		$parametersAcceptor = $methodReflection->getVariants()[0];
 		self::assertSame('select', $methodReflection->getName());
