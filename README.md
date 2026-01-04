@@ -5,7 +5,7 @@
 [![License](https://poser.pugx.org/phpstan/phpstan-dibi/license)](https://packagist.org/packages/phpstan/phpstan-dibi)
 
 * [PHPStan](https://phpstan.org/)
-* [Dibi](https://dibiphp.com/)
+* [Dibi](https://dibi.nette.org/)
 
 This extension defines dynamic methods on `Dibi\Fluent` instance. They are called to build an SQL query dynamically.
 
@@ -13,7 +13,7 @@ This extension defines dynamic methods on `Dibi\Fluent` instance. They are calle
 
 To use this extension, require it in [Composer](https://getcomposer.org/):
 
-```
+```shell
 composer require --dev phpstan/phpstan-dibi
 ```
 
@@ -24,7 +24,7 @@ If you also install [phpstan/extension-installer](https://github.com/phpstan/ext
 
 If you don't want to use `phpstan/extension-installer`, include extension.neon in your project's PHPStan config:
 
-```
+```neon
 includes:
     - vendor/phpstan/phpstan-dibi/extension.neon
 ```
