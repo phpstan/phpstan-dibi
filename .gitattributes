@@ -7,4 +7,5 @@ tmp export-ignore
 .gitignore export-ignore
 Makefile export-ignore
 phpstan.neon export-ignore
+CLAUDE.md export-ignore
 phpunit.xml export-ignore
