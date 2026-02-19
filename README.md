@@ -7,7 +7,10 @@
 * [PHPStan](https://phpstan.org/)
 * [Dibi](https://dibi.nette.org/)
 
-This extension defines dynamic methods on `Dibi\Fluent` instance. They are called to build an SQL query dynamically.
+This extension provides the following features:
+
+* Defines dynamic methods on `Dibi\Fluent` instances. They are called to build an SQL query dynamically. Each dynamic method accepts variadic arguments and returns `Dibi\Fluent` for method chaining.
+* Registers `Dibi\Row` as a universal object crate, allowing dynamic property access without errors.
 
 ## Installation
 
