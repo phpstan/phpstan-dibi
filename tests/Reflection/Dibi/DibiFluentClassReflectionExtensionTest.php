@@ -20,7 +20,7 @@ class DibiFluentClassReflectionExtensionTest extends PHPStanTestCase
 		$this->reflectionProvider = $this->createReflectionProvider();
 		$this->extension = new DibiFluentClassReflectionExtension();
 
-        parent::setUp();
+		parent::setUp();
 	}
 
 	/**
