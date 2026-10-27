@@ -30,15 +30,15 @@ jobs:
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
-        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
         with:
           egress-policy: audit
 
       - name: "Checkout"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # v2
+        uses: "shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962" # v2
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
@@ -59,22 +59,22 @@ jobs:
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
-        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
         with:
           egress-policy: audit
 
       - name: "Checkout"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: "Checkout build-cs"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: "phpstan/build-cs"
           path: "build-cs"
           ref: "2.x"
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # v2
+        uses: "shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962" # v2
         with:
           coverage: "none"
           php-version: "8.2"
@@ -117,15 +117,15 @@ jobs:
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
-        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
         with:
           egress-policy: audit
 
       - name: "Checkout"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # v2
+        uses: "shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962" # v2
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
@@ -163,15 +163,15 @@ jobs:
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
-        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
         with:
           egress-policy: audit
 
       - name: "Checkout"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # v2
+        uses: "shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962" # v2
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
@@ -197,15 +197,15 @@ jobs:
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
-        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
         with:
           egress-policy: audit
 
       - name: "Checkout"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # v2
+        uses: "shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962" # v2
         with:
           coverage: "none"
           php-version: "8.5"
