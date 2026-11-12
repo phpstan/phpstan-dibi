@@ -63,6 +63,7 @@ The GitHub Actions workflow (`.github/workflows/build.yml`) runs on the `2.0.x` 
 - **Coding Standard**: PHP 8.2
 - **Tests**: PHP 7.4–8.4, both lowest and highest dependency versions
 - **PHPStan**: PHP 7.4–8.4, both lowest and highest dependency versions
+- **Mutation Testing**: Infection (via `phpstan/build-infection`) on PHP 8.3–8.5, pull requests only, requires 100% MSI on changed lines
 
 ## How the Extension Works
 
